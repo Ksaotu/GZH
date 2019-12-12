@@ -1,0 +1,9 @@
+- id: name
+  input: xxoo
+- id: password
+  input: a1234567
+- id: sign_in_button
+- xpath: //*[@class='android.widget.Toast']
+  get: text
+  assert: '该用户不12存在'
+
