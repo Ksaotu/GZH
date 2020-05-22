@@ -1,0 +1,7 @@
+(2359, '登录（机构管理员）', '/lt-login/unauth/user/loginByPwd', [{'message': 'AssertionError [ERR_ASSERTION]: 500 == 200'}])
+(2387, '获取机构ID', '/lt-user/auth/common/organization/getOperationResult.htm', [{'message': 'AssertionError [ERR_ASSERTION]: 401 == 200'}])
+(2380, '添加单个老师', '/lt-user/auth/common/teacher/saveTeacher.htm', [{'message': 'AssertionError [ERR_ASSERTION]: 401 == 200'}])
+(2401, '按条件模糊查询机构教师列表', '/lt-user/auth/common/teacher/getTeacherByCondition.htm', [{'message': 'AssertionError [ERR_ASSERTION]: false deepEqual true'}])
+(2415, '查询老师（断言是否添加成功）', '/lt-user/auth/common/teacher/getOrgTeacherList.htm', [{'message': 'AssertionError [ERR_ASSERTION]: false deepEqual true'}])
+(2394, '移除老师', '/lt-user/auth/common/teacher/removeTeacherById.htm', [{'message': 'AssertionError [ERR_ASSERTION]: false deepEqual true'}])
+(2443, '查询老师（断言是否移除成功）', '/lt-user/auth/common/teacher/getOrgTeacherList.htm', [{'message': 'AssertionError [ERR_ASSERTION]: false deepEqual true'}])
