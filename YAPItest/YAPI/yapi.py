@@ -6,9 +6,10 @@
 import requests
 from .emails import send_email
 import os
+from .emails import send_msg
 
 
-receiver = []
+receiver = []  # 收件人列表
 body1 = '20.2环境有接口用例测试未通过，请登录YAPI测试相关接口：http://192.168.20.146:3000/project/517/interface/col/518 \n '
 pass_body1 = '20.2环境接口回归通过 \n '
 body3 = '\n用例ID      用例名称             接口地址                  测试结果 \n'
@@ -44,7 +45,7 @@ class YapiTest():
                 if case['code'] == 1:
                     failcase = case['id'], case['name'], case['path'], case['validRes']
                     f.write(str(failcase) + "\n")
-        # 通过结果写入文本
+        # 通过用例写入文本
         with open('passcase_list', 'a', encoding='utf-8') as f:
             for case in self.failcase_list:
                 if case['code'] == 0:
@@ -60,12 +61,14 @@ class YapiTest():
             with open('failcase_list', 'r', encoding='utf-8') as b:
                 body = body1 + body2 + body3 + b.read()
                 # print(body)
+            send_msg(title + body)
             send_email(receiver, title, body)
         else:
-            pass_title = '回归通过!'
+            pass_title = '所有用例回归通过!'
             pass_body2 = '用例总数：' + str(self.allcase_num) + ' \n以下是用例信息： \n'
             with open('passcase_list', 'r', encoding='utf-8') as b:
                 pass_body = pass_body1 + pass_body2 + body3 + b.read()
+            # send_msg(pass_title + pass_body)
             send_email(receiver, pass_title, pass_body)
 
     def del_result(self):
